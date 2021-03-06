@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Welcome from "./pages/Welcome";
 import Authorize from "./pages/Authorize";
 
+
 export default function Routes() {
   return (
     <Router>
