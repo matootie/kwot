@@ -8,12 +8,12 @@ export function getAccessTokenFromURL() {
 }
 
 export function setAccessTokenCookie(accessToken){
-    Cookies.set("access token", accessToken);
+    Cookies.set("access_token", accessToken);
 
 }
 
 export function getAccessTokenCookie(){
-    return Cookies.get("access token")
+    return Cookies.get("access_token")
 }
 
 
