@@ -1,29 +1,18 @@
 import React from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
-// const API_ENDPOINT = process.env.API_ENDPOINT;
-// const CLIENT_ID = process.env.CLIENT_ID;
-// const CLIENT_SECRET = process.env.CLIENT_SECRET;
-// const REDIRECT_URI = process.env.REDIRECT_URI;
-const AUTHORIZE_URL = process.env.AUTHORIZE_URL;
-// const TOKEN_URL = process.env.TOKEN_URL;
-// const REVOKE_TOKEN_URL = process.env.REVOKE_TOKEN_URL;
-
-
-function authorize_discord(){
-    
+function getAccessToken(){
+    const raw_url = window.location.href;
+    const accessToken = raw_url.match(/(?<=access_token=)\w+(?=$|&)/)    
+    return accessToken
 }
-
-function getToken(){
-
-}
-
-
 
 function DiscordAuth(){
+    
+    const accessToken = getAccessToken()
     return(
         <div>
-            <a href={{AUTHORIZE_URL}}> something </ a>
+            <Redirect to="/"></Redirect>
         </div>
     )
 };
