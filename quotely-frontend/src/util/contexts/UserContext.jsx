@@ -9,7 +9,7 @@ export function UserProvider(props) {
 
   function authenticate(props) {
     console.log(props);
-    setAuthenticated(true);
+    setAuthenticated(props);
   }
 
   function setToken(token) {

@@ -1,6 +1,10 @@
+import React from "react";
+
 // components
 import Content from "./../components/Content";
 
+
+//set user context to accesstoken
 export default function Home() {
   const bg = "bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 ";
   return (
