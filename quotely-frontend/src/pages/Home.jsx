@@ -2,10 +2,10 @@
 import Content from "./../components/Content";
 
 export default function Home() {
-  const bg = "bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 ";
+  const bg = "bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 ";
   return (
     <div className={bg + "flex flex-col h-screen justify-evenly"}>
-      <div className="text-3xl text-center text-mono pt-3">Quotely</div>
+      <div className="text-9xl text-center font-serif pt-3">"KWOT"</div>
       <Content />
     </div>
   );
