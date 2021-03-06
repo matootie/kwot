@@ -8,7 +8,7 @@ export default function Welcome() {
         Quotes from Space
       </div>
       <div className="mx-auto">
-        {<LoginCard />}
+        <LoginCard />
       </div>
     </div>
   );

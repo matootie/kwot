@@ -5,20 +5,29 @@ const NewUserContext = createContext();
 
 export function UserProvider(props) {
   const [authenticated, setAuthenticated] = useState(false);
+  const [userToken, setUserToken] = useState("");
 
   function authenticate(props) {
     console.log(props);
     setAuthenticated(true);
   }
 
+  function setToken(token) {
+    setUserToken(token);
+  }
+
   return (
-    <NewUserContext.Provider value={{ authenticate, authenticated }}>
+    <NewUserContext.Provider
+      value={{ authenticate, authenticated, userToken, setToken }}
+    >
       {props.children}
     </NewUserContext.Provider>
   );
 }
 
 export const useUserContext = () => {
-  const { authenticate, authenticated } = useContext(NewUserContext);
-  return { authenticate, authenticated };
+  const { authenticate, authenticated, userToken, setToken } = useContext(
+    NewUserContext
+  );
+  return { authenticate, authenticated, userToken, setToken };
 };
