@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+
+const AUTH_URL = process.env.AUTHORIZE_URL;
 // component
 // import LoginCard from "./../components/LoginCard";
 export default function Welcome() {
@@ -10,14 +13,10 @@ export default function Welcome() {
       </div>
       <div className="mx-auto">
         {/* <LoginCard /> */}
-        <button
-          className={
-            button + " px-10 py-5 rounded-md shadow-xl text-mono text-2xl"
-          }
-        >
-          {" "}
-          Login with Discord{" "}
-        </button>
+        <a 
+          className={button + " px-10 py-5 rounded-md shadow-xl text-mono text-2xl"} href="https://discord.com/api/oauth2/authorize?response_type=token&client_id=817564307121635348&scope=identify">
+          Signin With Discord
+        </a>
       </div>
     </div>
   );
