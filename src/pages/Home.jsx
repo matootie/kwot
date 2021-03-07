@@ -19,8 +19,8 @@ export default function Home() {
   }, [isFetching, data]);
 
   return (
-    <div className={bg + "flex flex-col h-screen justify-evenly"}>
-      <div className="text-9xl text-center font-serif pt-3">"KWOT"</div>
+    <div className={bg + "flex flex-col h-screen justify-evenly items-center"}>
+      <img className="w-64 h-64 transform -rotate-3" src="/Kwot_App.png" />
       <Content />
     </div>
   );
