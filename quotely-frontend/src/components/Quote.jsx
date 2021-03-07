@@ -5,7 +5,6 @@ export default function Quote({ quote, author, data, selectable }) {
 
   function handleSelect() {
     if (selectable) {
-      console.log(selected);
       setSelected(true);
     }
   }

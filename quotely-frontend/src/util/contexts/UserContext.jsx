@@ -8,12 +8,10 @@ export function UserProvider(props) {
   const [userToken, setUserToken] = useState("");
 
   function authenticate(props) {
-    console.log(props);
     setAuthenticated(props);
   }
 
   function setToken(token) {
-    console.log(token);
     if (token) {
       authenticate(true);
     } else {
