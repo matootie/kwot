@@ -18,8 +18,6 @@ export default function Home() {
     }
   }, [isFetching, data]);
 
-  console.log(useSubmit("I am become death, destroyer of worlds...").data);
-  
   return (
     <div className={bg + "flex flex-col h-screen justify-evenly"}>
       <div className="text-9xl text-center font-serif pt-3">"KWOT"</div>

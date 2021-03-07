@@ -36,7 +36,7 @@ export default function Content() {
         <div className="text-2xl text-center">🤔</div>
         <Quote quote={quote} author={author} data={data} />
         <button
-          className="rounded-md bg-indigo-400 my-3 px-10 py-4"
+          className="rounded-md bg-gray-100 transition duration-300 shadow-md hover:shadow-xl my-3 px-10 py-4"
           onClick={() => setContent("vote")}
         >
           Vote on Tomorrow's KWOT!
@@ -51,9 +51,9 @@ export default function Content() {
         <div className="text-2xl text-center">📩</div>
 
         <div className="flex flex-row justify-evenly">
-          {allQuotes().map((item) => {
+          {allQuotes().map((item, index) => {
             return (
-              <div className="flex flex-col justify-between">
+              <div className="flex flex-col justify-between" key={index}>
                 <div className="m-5">
                   <Quote
                     quote={item.quote}
@@ -66,19 +66,26 @@ export default function Content() {
             );
           })}
         </div>
-
-        <button
-          className="rounded-md bg-indigo-400 mx-auto my-3 px-10 py-4"
-          onClick={() => setContent("qotd")}
-        >
-          View today's KWOT
-        </button>
         <Link
-          className="rounded-md bg-indigo-400 mx-auto my-3 px-10 py-4"
-          to="/history"
+          className="rounded-md bg-gray-300 transition duration-300 shadow-md hover:shadow-xl mx-auto my-3 px-10 py-4"
+          to="/submit"
         >
-          View past KWOTs
+          Submit a KWOT!
         </Link>
+        <div className="flex flex-row justify-end">
+          <button
+            className="rounded-md bg-gray-100 transition duration-300 shadow-md hover:shadow-xl mx-auto my-3 px-10 py-4"
+            onClick={() => setContent("qotd")}
+          >
+            View today's KWOT
+          </button>
+          <Link
+            className="rounded-md bg-gray-100 transition duration-300 shadow-md hover:shadow-xl mx-auto my-3 px-10 py-4"
+            to="/history"
+          >
+            View past KWOTs
+          </Link>
+        </div>
       </div>
     );
   }

@@ -12,7 +12,7 @@ export default function Quote({ quote, author, data, selectable }) {
   return (
     <div>
       <button
-        className={`bg-yellow-500 rounded-md p-16 my-3 ${
+        className={`bg-gray-200 transition duration-300 hover:border-current hover:shadow-md rounded-md p-16 my-3 ${
           selected ? " border-black" : ""
         }`}
         onClick={() => handleSelect()}
