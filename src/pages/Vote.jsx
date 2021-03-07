@@ -1,45 +1,38 @@
 import Quote from "./../components/Quote";
+import { useQuote } from "./../util/api/";
 export default function Vote() {
   const quote = "Pee is stored in the balls";
   const author = " - Albert Winston";
-  const data = {
+  const info = {
     votes: 100,
   };
+  const { data, isLoading, status } = useQuote();
+  const testThis = useQuote();
 
   function allQuotes() {
-    return [
-      {
-        quote: quote,
-        author: author,
-        data: data,
-      },
-      {
-        quote: quote,
-        author: author,
-        data: data,
-      },
-    ];
+    console.log(testThis);
   }
 
   function vote() {
     return (
       <div className="flex flex-col justify-between items-center rounded-md mx-auto p-16">
         <div className="flex flex-row justify-evenly">
-          {allQuotes().map((item, index) => {
-            return (
-              <div className="flex flex-col justify-between" key={index}>
-                <div className="">
-                  <Quote
-                    quote={item.quote}
-                    author={item.author}
-                    data={item.data}
-                    left={index % 2 === 1}
-                    selectable={false}
-                  />
-                </div>
-              </div>
-            );
-          })}
+          {
+            allQuotes()
+            // .map((item, index) => {
+            //   return (
+            //     <div className="flex flex-col justify-between" key={index}>
+            //       <div className="">
+            //         <Quote
+            //           quote={item}
+            //           left={index % 2 === 1}
+            //           selectable={false}
+            //         />
+            //       </div>
+            //     </div>
+            //   );
+            // })
+          }
         </div>
         <button className="font-serif lowercase text-gray-400 hover:underline mt-3 p-2">
           Skip the vote
