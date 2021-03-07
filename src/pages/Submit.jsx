@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useSubmit } from "./../util/api/";
+import { FaGavel, FaBook } from "react-icons/fa";
 
 export default function Submit() {
   const [quote, setQuote] = useState("");
@@ -74,6 +75,14 @@ export default function Submit() {
         >
           Kwot &#8594;
         </button>
+      </div>
+      <div className="fixed bottom-2 right-2 flex">
+        <Link to="/vote">
+          <FaGavel className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
+        </Link>
+        <Link to="/">
+          <FaBook className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
+        </Link>
       </div>
     </div>
   );

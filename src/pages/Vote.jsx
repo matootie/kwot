@@ -1,45 +1,47 @@
 import Quote from "./../components/Quote";
-import { useQuote, useVote } from "./../util/api/";
+import { useQuote } from "./../util/api/";
 import { Link } from "react-router-dom";
 import { FaPenNib, FaBook } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 export default function Vote() {
-  const quote = "Bungers and ham";
-  const author = " - Albert Winston";
-  const info = {
-    votes: 100,
-  };
-  const { data, isLoading, status } = useQuote();
-  const testThis = useQuote();
-  const votes = useVote();
+  const { data, status } = useQuote();
+  const history = useHistory();
 
   function allQuotes() {
-    console.log(testThis);
-    console.log(votes);
+    // console.log(data);
+    if (status === "success" && data) {
+      return data.data.data;
+    }
+  }
+
+  function handleSkip() {
+    history.go(0);
   }
 
   function vote() {
     return (
       <div className="flex flex-col justify-between items-center rounded-md mx-auto p-16">
         <div className="flex flex-row justify-evenly">
-          {
-            allQuotes()
-            // .map((item, index) => {
-            //   return (
-            //     <div className="flex flex-col justify-between" key={index}>
-            //       <div className="">
-            //         <Quote
-            //           quote={item}
-            //           left={index % 2 === 1}
-            //           selectable={false}
-            //         />
-            //       </div>
-            //     </div>
-            //   );
-            // })
-          }
+          {status === "success" &&
+            allQuotes().map((item, index) => {
+              return (
+                <div className="flex flex-col justify-between" key={index}>
+                  <div className="">
+                    <Quote
+                      quote={item}
+                      left={index % 2 === 1}
+                      selectable={false}
+                    />
+                  </div>
+                </div>
+              );
+            })}
         </div>
-        <button className="font-serif lowercase text-gray-400 hover:underline mt-3 p-2">
+        <button
+          className="font-serif lowercase text-gray-400 hover:underline mt-3 p-2"
+          onClick={() => handleSkip()}
+        >
           Skip the vote
         </button>
       </div>
