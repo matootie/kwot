@@ -1,8 +1,10 @@
 import { useVote } from "./../util/api/";
+import { useHistory } from "react-router-dom";
 
 export default function Quote({ quote, author, data, selectable, left }) {
   // const [selected, setSelected] = useState(false);
   const vote = useVote();
+  const history = useHistory();
 
   function handleSelect() {
     if (left) {
@@ -11,6 +13,7 @@ export default function Quote({ quote, author, data, selectable, left }) {
       vote.mutate(1);
     }
     console.log(vote);
+    history.go(0);
   }
 
   return (
