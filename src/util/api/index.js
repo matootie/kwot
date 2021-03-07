@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import Cookies from "js-cookie";
 
 export function usePing() {
@@ -17,8 +17,24 @@ export function usePing() {
 
 export function useQuoteByDate(date) {
   return useQuery(["quote", date], async () => {
-    const data  = await axios.get(
+    const data = await axios.get(
       `https://philosopher.yoik.software/qod?date=${date}`
+    );
+    return data;
+  });
+}
+
+export function useQuotes() {
+  const token = Cookies.get("access-token");
+  const fullToken = "Bearer ".concat(token);
+  return useQuery([], async () => {
+    const { data } = await axios.get(
+      "https://philosopher.yoik.software/quotes",
+      {
+        headers: {
+          Authorization: fullToken,
+        },
+      }
     );
     return data;
   });
@@ -44,32 +60,39 @@ export function useVote(vote) {
   });
 }
 
-export function useSubmit(quote) {
+// export function useSubmit(quote) {
+//   const token = Cookies.get("access-token");
+//   const fullToken = "Bearer ".concat(token);
+//   return useQuery(["submit", quote], async () => {
+//     const data = await axios.post("https://philosopher.yoik.software/submit", {
+//       headers: {
+//         Authorization: fullToken,
+//         "Content-Type": "application/json",
+//       },
+//       data: {
+//         quote: quote,
+//       },
+//     });
+//     return data;
+//   });
+// }
+
+export function useSubmit() {
   const token = Cookies.get("access-token");
   const fullToken = "Bearer ".concat(token);
-  return useQuery(["submit", quote], async () => {
-    const data = await fetch("https://philosopher.yoik.software/submit", {
-      method: "POST",
-      headers: {
-        Authorization: fullToken,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        quote: quote,
-      }),
-    });
-    // axios.post(
-    //   "https://philosopher.yoik.software/submit",
-    //   {
-    //     headers: {
-    //       Authorization: fullToken,
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       quote: quote,
-    //     }),
-    //   }
-    // );
+  return useMutation(async (quote) => {
+    const { data } = await axios.post(
+      "https://philosopher.yoik.software/submit",
+      {
+        headers: {
+          Authorization: fullToken,
+          "Content-Type": "application/json",
+        },
+        data: {
+          quote: quote,
+        },
+      }
+    );
     return data;
   });
 }

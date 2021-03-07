@@ -1,23 +1,17 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-// import { useSubmit } from "./../util/api/";
+import { useSubmit } from "./../util/api/";
 
 export default function Submit() {
   const [quote, setQuote] = useState("");
   const history = useHistory();
+  const submit = useSubmit();
   //   const [submitQuote, setSubmitQuote] = useState("")
   //   const [loading, setLoading] = useState(false)
   //   const {data, isLoading, isError} = useSubmit(submitQuote);
 
   function handleSubmit() {
-    // while(isLoading){
-    //     setLoading(true)
-    // }
-    // if(!isError && data === ""){
-    //     setLoading(false)
-    //     setSucces(true)
-    // }
-    console.log();
+    console.log(submit.mutate(quote));
   }
 
   function handleBack() {
