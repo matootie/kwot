@@ -2,8 +2,8 @@ import Cookies from "js-cookie";
 
 export function getAccessTokenFromURL() {
   const raw_url = window.location.href;
-  const accessToken = raw_url.match(/(?<=access_token=)\w+(?=$|&)/);
-  return accessToken.pop();
+  const accessToken = raw_url.match(/access_token=(\w+)($|&)/);
+  return accessToken[1];
 }
 
 export function setAccessTokenCookie(accessToken) {
