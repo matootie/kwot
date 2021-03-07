@@ -16,7 +16,7 @@ export function getAccessTokenCookie() {
 
 export function getDiscordAuthURL(){
   const baseAuthURL = "https://discord.com/api/oauth2/authorize?response_type=token&client_id=817564307121635348&scope=identify&redirect_uri=";
-  const decodedRedirectURI = "http://localhost:3000/authorize";
+  const decodedRedirectURI = `${process.env.REACT_APP_BASE_URL || "http://localhost:3000"}/authorize`;
   const encodedRedirectURI = encodeURI(decodedRedirectURI);
   const discordAuthURL = baseAuthURL.concat(encodedRedirectURI);
   return discordAuthURL;
