@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Authorize from "./pages/Authorize";
 import Submit from "./pages/Submit";
+import Vote from "./pages/Vote";
 
 export default function Routes() {
   return (
@@ -19,6 +20,8 @@ export default function Routes() {
         <PrivateRoute path="/" component={Home} exact />
 
         <PrivateRoute path="/submit" component={Submit} exact />
+
+        <PrivateRoute path="/vote" component={Vote} exact />
 
         <Route exact path="/sign-up">
           <SignUp />
