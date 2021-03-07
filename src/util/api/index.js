@@ -28,11 +28,10 @@ export function useQuote() {
   const token = Cookies.get("access-token");
   const fullToken = "Bearer ".concat(token);
   return useQuery(["quote"], async () => {
-    const data = await fetch("https://philosopher.yoik.software/quotes", {
-      method: "GET",
+    const data = await axios.get("https://philosopher.yoik.software/quotes", {
       headers: {
         Authorization: fullToken,
-      },
+      }
     });
     return data;
   });
