@@ -1,27 +1,39 @@
-import { useEffect } from "react";
-
-// components
-import Content from "./../components/Content";
-
-// data from query
-import { usePing, useSubmit } from "./../util/api/";
-
-//set user context to accesstoken
+import QuoteOfTheDay from "./../components/QuoteOfTheDay"
 
 export default function Home() {
   const bg = "bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 ";
-  const { data, isFetching } = usePing();
 
-  useEffect(() => {
-    if (!isFetching) {
-      console.log(data);
+  function getQuoteOfTheDay(){
+    return(
+      <div key={1}>
+        <QuoteOfTheDay day={1}/>
+      </div>
+    )
+  };
+
+  function getPreviousQuoteOfTheDay(){
+    const items = [];
+    for(let i = 2; i<=5; i++){
+        items.push(
+            <div key={i}>
+                <QuoteOfTheDay day={i}/>
+            </div>
+        )
     }
-  }, [isFetching, data]);
+    return items;
+  };
 
   return (
     <div className={bg + "flex flex-col h-screen justify-evenly items-center"}>
       <img className="w-64 h-64 transform -rotate-3" src="/Kwot_App.png" />
-      <Content />
+      <div>
+        <h1> QOTD</h1>
+        {getQuoteOfTheDay()}
+      </div>
+      <div>
+        <h4> previous QOTD</h4>
+        {getPreviousQuoteOfTheDay()}
+      </div>
     </div>
   );
 }

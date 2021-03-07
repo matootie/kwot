@@ -11,7 +11,7 @@ export default function PrivateRoute({ component: Component, props, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: `/sign-in`,
+              pathname: `/sign-up`,
               state: {
                 message: "You need to be signed in to view this page",
               },
