@@ -1,7 +1,6 @@
 import QuoteOfTheDay from "./../components/QuoteOfTheDay"
 
 export default function Home() {
-  const bg = "bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 ";
 
   function getQuoteOfTheDay(){
     return(
@@ -24,7 +23,7 @@ export default function Home() {
   };
 
   return (
-    <div className={bg + "flex flex-col h-screen justify-evenly items-center"}>
+    <div className="flex flex-col h-screen justify-evenly items-center">
       <img className="w-64 h-64 transform -rotate-3" src="/Kwot_App.png" />
       <div>
         <h1> QOTD</h1>
