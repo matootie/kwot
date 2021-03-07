@@ -10,6 +10,7 @@ import PrivateRoute from "./util/auth/PrivateRoute";
 import Home from "./pages/Home";
 import Welcome from "./pages/Welcome";
 import Authorize from "./pages/Authorize";
+import History from "./pages/History";
 
 export default function Routes() {
   return (
@@ -19,9 +20,11 @@ export default function Routes() {
         <Route exact path="/sign-in">
           <Welcome />
         </Route>
-
         <Route exact path="/authorize">
           <Authorize />
+        </Route>
+        <Route exact path="/history">
+          <History />
         </Route>
       </Switch>
     </Router>
