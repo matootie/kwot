@@ -10,12 +10,16 @@ import PrivateRoute from "./util/auth/PrivateRoute";
 import Home from "./pages/Home";
 import Welcome from "./pages/Welcome";
 import Authorize from "./pages/Authorize";
+import Submit from "./pages/Submit";
 
 export default function Routes() {
   return (
     <Router>
       <Switch>
         <PrivateRoute path="/" component={Home} exact />
+
+        <PrivateRoute path="/submit" component={Submit} exact />
+
         <Route exact path="/sign-in">
           <Welcome />
         </Route>
