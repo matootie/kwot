@@ -15,10 +15,10 @@ export default function Content({ qod, previousQods, className }) {
         {previousQods}
         <div className="fixed bottom-2 right-2 flex">
           <Link to="/submit">
-            <FaGavel className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
+            <FaPenNib className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
           </Link>
           <Link to="/vote">
-            <FaPenNib className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
+            <FaGavel className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
           </Link>
         </div>
       </div>

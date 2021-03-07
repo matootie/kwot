@@ -1,6 +1,9 @@
 import Quote from "./../components/Quote";
+import { Link } from "react-router-dom"
+import { FaPenNib, FaBook } from "react-icons/fa"
+
 export default function Vote() {
-  const quote = "Pee is stored in the balls";
+  const quote = "Bungers and ham";
   const author = " - Albert Winston";
   const data = {
     votes: 100,
@@ -56,6 +59,14 @@ export default function Vote() {
         alt="Kwot Logo"
       />
       {vote()}
+      <div className="fixed bottom-2 right-2 flex">
+        <Link to="/submit">
+          <FaPenNib className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
+        </Link>
+        <Link to="/">
+          <FaBook className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
+        </Link>
+      </div>
     </div>
   );
 }
