@@ -1,19 +1,16 @@
 import { getDiscordAuthURL } from './../util/auth/discordAuth'
+import { FaDiscord } from 'react-icons/fa'
 
 export default function LoginCard() {
-  const button = "bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500";
   const auth_url = getDiscordAuthURL();
 
   return (
-    <div className="flex flex-col justify-evenly rounded-md shadow-2xl h-44 w-max bg-gray-300">
-      <a
-        className={
-          button + " px-10 py-5 rounded-md shadow-xl text-mono text-2xl mx-20"
-        }
-        href={auth_url}
-      >
-        Sign In With Discord
-      </a>
-    </div>
+    <a 
+      className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-discord-white bg-discord-blue hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+      href={auth_url}
+    >
+      <FaDiscord className="w-6 h-6 mr-2" />
+      Continue with Discord
+    </a>
   );
 }

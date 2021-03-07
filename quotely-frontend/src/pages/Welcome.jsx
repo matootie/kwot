@@ -1,11 +1,10 @@
 import LoginCard from "./../components/LoginCard";
 
 export default function Welcome() {
-  const bg = "bg-gradient-to-r from-green-300 via-blue-500 to-purple-600";
   return (
-    <div className={"flex flex-col " + bg + " h-screen justify-evenly"}>
-      <div className="text-9xl text-mono text-center py-3">Kwot</div>
-      <div className="mx-auto">
+    <div className={"flex flex-col h-screen justify-center items-center"}>
+      <img className="w-64 h-64 transform -rotate-3" src="/Kwot_App.png" />
+      <div className="mt-8">
         <LoginCard />
       </div>
     </div>
