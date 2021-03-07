@@ -8,11 +8,8 @@ import PrivateRoute from "./util/auth/PrivateRoute";
 // import { useUserContext } from "./util/contexts/";
 
 import Home from "./pages/Home";
-import Welcome from "./pages/Welcome";
+import SignUp from "./pages/SignUp";
 import Authorize from "./pages/Authorize";
-
-import History from "./pages/History";
-
 import Submit from "./pages/Submit";
 
 export default function Routes() {
@@ -23,14 +20,11 @@ export default function Routes() {
 
         <PrivateRoute path="/submit" component={Submit} exact />
 
-        <Route exact path="/sign-in">
-          <Welcome />
+        <Route exact path="/sign-up">
+          <SignUp />
         </Route>
         <Route exact path="/authorize">
           <Authorize />
-        </Route>
-        <Route exact path="/history">
-          <History />
         </Route>
       </Switch>
     </Router>
