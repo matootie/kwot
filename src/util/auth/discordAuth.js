@@ -7,7 +7,7 @@ export function getAccessTokenFromURL() {
 }
 
 export function setAccessTokenCookie(accessToken) {
-  Cookies.set("access-token", accessToken, { sameSite: "strict" });
+  Cookies.set("access-token", accessToken, { expires: 7, sameSite: "strict" });
 }
 
 export function getAccessTokenCookie() {
