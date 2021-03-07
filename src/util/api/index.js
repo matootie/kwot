@@ -38,22 +38,20 @@ export function useQuote() {
   });
 }
 
-export function useVote(vote) {
+export function useVote() {
   const token = Cookies.get("access-token");
   const fullToken = "Bearer ".concat(token);
-  return useQuery(["vote", vote], async () => {
-    const { data } = await axios.post(
-      "https://philosopher.yoik.software/vote",
-      {
-        headers: {
-          Authorization: fullToken,
-          "Content-Type": "application/json",
-        },
-        data: {
-          vote: vote,
-        },
-      }
-    );
+  return useMutation(async (vote) => {
+    const data = await fetch("https://philosopher.yoik.software/vote", {
+      method: "POST",
+      headers: {
+        Authorization: fullToken,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        vote: vote,
+      }),
+    });
     return data;
   });
 }

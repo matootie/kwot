@@ -1,5 +1,5 @@
 import Quote from "./../components/Quote";
-import { useQuote } from "./../util/api/";
+import { useQuote, useVote } from "./../util/api/";
 import { Link } from "react-router-dom";
 import { FaPenNib, FaBook } from "react-icons/fa";
 
@@ -11,9 +11,11 @@ export default function Vote() {
   };
   const { data, isLoading, status } = useQuote();
   const testThis = useQuote();
+  const votes = useVote();
 
   function allQuotes() {
     console.log(testThis);
+    console.log(votes);
   }
 
   function vote() {

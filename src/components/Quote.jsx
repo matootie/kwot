@@ -1,10 +1,16 @@
+import { useVote } from "./../util/api/";
+
 export default function Quote({ quote, author, data, selectable, left }) {
   // const [selected, setSelected] = useState(false);
+  const vote = useVote();
 
+  console.log(vote);
   function handleSelect() {
-    // if (selectable) {
-    //   setSelected(true);
-    // }
+    if (left) {
+      vote.mutate(0);
+    } else {
+      vote.mutate(1);
+    }
   }
 
   return (
