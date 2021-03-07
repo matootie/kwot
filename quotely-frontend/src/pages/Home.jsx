@@ -1,30 +1,24 @@
-// import { useEffect } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 
 // components
 import Content from "./../components/Content";
 
 // data from query
-import { usePing } from "./../util/api/";
+import { usePing, useSubmit } from "./../util/api/";
 
 //set user context to accesstoken
 
 export default function Home() {
   const bg = "bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 ";
-  const fullToken = "Bearer ".concat("Le1m8bf8Wu1gebMcaVyMvaaPBnb2nl");
-  // const { data, isFetching } = usePing();
+  const { data, isFetching } = usePing();
 
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [isFetching]);
+  useEffect(() => {
+    if (!isFetching) {
+      console.log(data);
+    }
+  }, [isFetching, data]);
 
-  console.log(
-    axios.get("https://philosopher.yoik.software/ping", {
-      headers: {
-        Authorization: fullToken,
-      },
-    })
-  );
+  console.log(useSubmit("I am become death, destroyer of worlds...").data);
 
   return (
     <div className={bg + "flex flex-col h-screen justify-evenly"}>
