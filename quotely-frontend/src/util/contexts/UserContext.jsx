@@ -13,6 +13,12 @@ export function UserProvider(props) {
   }
 
   function setToken(token) {
+    console.log(token);
+    if (token) {
+      authenticate(true);
+    } else {
+      authenticate(false);
+    }
     setUserToken(token);
   }
 

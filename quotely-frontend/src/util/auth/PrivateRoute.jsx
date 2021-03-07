@@ -6,12 +6,12 @@ export default function PrivateRoute({ component: Component, props, ...rest }) {
     <Route
       {...rest}
       render={(props) =>
-        Cookies.get("JWT") ? (
+        Cookies.get("access-token") ? (
           <Component {...props} />
         ) : (
           <Redirect
             to={{
-              pathname: `/login`,
+              pathname: `/sign-in`,
               state: {
                 message: "You need to be signed in to view this page",
               },
