@@ -17,7 +17,7 @@ export function usePing() {
 
 export function useQuoteByDate(date) {
   return useQuery(["quote", date], async () => {
-    const { data } = await axios.get(
+    const data  = await axios.get(
       `https://philosopher.yoik.software/qod?date=${date}`
     );
     return data;
