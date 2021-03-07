@@ -16,6 +16,7 @@ function Authorize() {
   return (
     <div>
       You are being authorized
+      {console.log(accessToken)}
       <Redirect to="/" />
     </div>
   );
