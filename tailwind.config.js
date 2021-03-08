@@ -10,8 +10,10 @@ module.exports = {
     },
   },
   variants: {
+    animation: ["motion-safe"],
     extend: {
-      zIndex: ["hover"]
+      zIndex: ["hover"],
+      translate: ["group-hover"]
     },
   },
   plugins: [],

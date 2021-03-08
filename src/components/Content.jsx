@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-import { FaPenNib, FaGavel } from "react-icons/fa";
-
 // component
 // import Quote from "./../components/Quote";
 
@@ -13,14 +10,6 @@ export default function Content({ qod, previousQods, className }) {
           Previous quotes of the day...
         </span>
         {previousQods}
-        <div className="fixed bottom-2 right-2 flex">
-          <Link to="/submit">
-            <FaPenNib className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
-          </Link>
-          <Link to="/vote">
-            <FaGavel className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
-          </Link>
-        </div>
       </div>
     );
   }

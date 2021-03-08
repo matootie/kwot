@@ -1,16 +1,28 @@
 import { Link } from "react-router-dom"
-import { HiOutlineExclamationCircle } from "react-icons/hi"
+import { HiArrowDown, HiOutlineExclamationCircle } from "react-icons/hi"
 import { FaPenNib, FaBook } from "react-icons/fa"
 
-import { useQuote, useVote } from "../utils/api"
+import { useVoted, useQuote, useVote } from "../utils/api"
 
+import Loading from "../components/Loading"
 import Quote from "../components/Quote"
 
 
 export default function Vote() {
 
+  const voted = useVoted()
   const quotes = useQuote()
   const votes = useVote()
+
+  if (voted.isLoading) {
+    return (
+      <div className="h-screen w-screen">
+        <Loading />
+      </div>
+    )
+  }
+
+  const hasVoted = voted.data.status === 202
 
   function votingModule() {
     if (votes.isLoading) {
@@ -98,11 +110,19 @@ export default function Vote() {
 
       {/* Navigation buttons. */}
       <div className="fixed bottom-2 right-2 flex">
-        <Link to="/submit">
-          <FaPenNib className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
-        </Link>
+        {
+          hasVoted ? (
+            <div>
+              <FaPenNib className="h-6 w-6 text-gray-300 m-2" />
+            </div>
+          ) : (
+            <Link className="group" to="/submit">
+              <FaPenNib className = "h-6 w-6 text-gray-500 m-2 group-hover:text-gray-700" />
+                  <HiArrowDown className="absolute -top-2 left-2 animate-bounce w-6 h-6 text-gray-800" />
+            </Link>
+          )}
         <Link to="/">
-          <FaBook className="h-6 w-6 text-gray-400 m-2 hover:text-gray-700" />
+          <FaBook className="h-6 w-6 text-gray-500 m-2 hover:text-gray-700" />
         </Link>
       </div>
     </div>
