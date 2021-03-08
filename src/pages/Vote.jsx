@@ -38,7 +38,8 @@ export default function Vote() {
       // The vote has succeeded. Reset the vote mutation and refetch quotes.
       votes.reset()
       quotes.remove()
-      return quotes.refetch()
+      quotes.refetch()
+      return (<></>)
     } else if (quotes.isLoading) {
       // Quotes are loading, show a loading screen.
       return (
