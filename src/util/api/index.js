@@ -37,6 +37,21 @@ export function useQuote() {
   });
 }
 
+export async function getQuotes() {
+  const token = Cookies.get("access-token")
+
+  const response = await axios.get(
+    "https://philosopher.yoik.software/quotes",
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    }
+  )
+
+  return response
+}
+
 export function useVote() {
   const token = Cookies.get("access-token");
   const fullToken = "Bearer ".concat(token);
