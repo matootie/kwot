@@ -1,10 +1,18 @@
-import { useQuery, useMutation } from "react-query"
-import Cookies from "js-cookie"
 import axios from "axios"
+import { useQuery, useMutation } from "react-query"
 
+import { getAccessTokenCookie } from "./auth"
+
+
+export function useQuoteByDate(date) {
+  return useQuery(["get-quotes-day", date], () => axios({
+    method: "get",
+    url: `https://philosopher.yoik.software/qod?date=${date}`,
+  }))
+}
 
 export function useQuote() {
-  const token = Cookies.get("access-token")
+  const token = getAccessTokenCookie()
 
   return useQuery(["get-quotes"], () => axios({
     method: "get",
@@ -16,7 +24,7 @@ export function useQuote() {
 }
 
 export function useVoted() {
-  const token = Cookies.get("access-token")
+  const token = getAccessTokenCookie()
 
   return useQuery(["check-voted"], () => axios({
     method: "get",
@@ -28,7 +36,7 @@ export function useVoted() {
 }
 
 export function useVote() {
-  const token = Cookies.get("access-token")
+  const token = getAccessTokenCookie()
 
   return useMutation(vote => axios({
     method: "post",
@@ -44,7 +52,7 @@ export function useVote() {
 }
 
 export function useSubmit() {
-  const token = Cookies.get("access-token")
+  const token = getAccessTokenCookie()
 
   return useMutation(quote => axios({
     method: "post",

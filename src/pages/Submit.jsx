@@ -5,6 +5,7 @@ import { HiArrowRight } from "react-icons/hi"
 import Loading from "../components/Loading"
 import { useVoted, useSubmit } from "../utils/api"
 
+
 export default function Submit() {
   const [quote, setQuote] = useState("")
   const history = useHistory()

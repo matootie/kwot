@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useQuoteByDate } from "./../util/api/index"
+import { useQuoteByDate } from "../utils/api"
 
 
 function convertIntToDay(prev) {
@@ -8,7 +8,6 @@ function convertIntToDay(prev) {
   const date = d.toISOString().substr(0, 10)
   return date
 }
-
 
 export default function QuoteOfTheDay({ day }) {
   const dayF = convertIntToDay(day)
@@ -33,7 +32,7 @@ export default function QuoteOfTheDay({ day }) {
           <h3 className="text-4xl font-serif">{dayF}</h3>
           <p className="text-gray-400 font-serif ml-5">@{d.user}</p>
         </div>
-        <p className="text-gray-900 font-serif text-xl mb-8">"{d.quote ? d.quote : "bungers"}"</p>
+        <p className="text-gray-900 font-serif text-xl mb-8">"{d.quote}"</p>
         <hr />
       </div>
     )

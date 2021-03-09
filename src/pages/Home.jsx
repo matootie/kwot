@@ -6,7 +6,7 @@ import { useVoted } from "../utils/api"
 
 import Loading from "../components/Loading"
 import QuoteOfTheDay from "./../components/QuoteOfTheDay";
-import Content from "./../components/Content";
+
 
 export default function Home() {
 
@@ -27,7 +27,7 @@ export default function Home() {
       <div key={1}>
         <QuoteOfTheDay day={1} />
       </div>
-    );
+    )
   }
 
   function getPreviousQuoteOfTheDay() {
@@ -37,23 +37,31 @@ export default function Home() {
         <div key={i}>
           <QuoteOfTheDay day={i} />
         </div>
-      );
+      )
     }
-    return items;
+    return items
   }
 
   return (
     <div className="flex flex-col justify-evenly items-center py-12">
+
+      {/* Header image. */}
       <img
         className="w-64 h-64 transform -rotate-3"
         src="/Kwot_App.png"
         alt="Kwot Logo"
       />
-      <Content
-        qod={getQuoteOfTheDay()}
-        previousQods={getPreviousQuoteOfTheDay()}
-        className="mt-12"
-      />
+
+      {/* Content. */}
+      <div className="flex flex-col justify-evenly h-1/2 mx-20 ">
+        <div className="mt-12 flex flex-col mx-auto">
+          {getQuoteOfTheDay()}
+          <span className="my-12 text-gray-400 font-serif lowercase text-center">
+            Previous quotes of the day...
+        </span>
+          {getPreviousQuoteOfTheDay()}
+        </div>
+      </div>
 
       {/* Navigation buttons. */}
       <div className="fixed bottom-2 right-2 flex">
@@ -72,6 +80,7 @@ export default function Home() {
           <FaGavel className="h-6 w-6 text-gray-500 m-2 hover:text-gray-700" />
         </Link>
       </div>
+
     </div>
-  );
+  )
 }

@@ -1,17 +1,30 @@
 import React from "react";
-//util
-import {
-  getAccessTokenFromURL,
-  setAccessTokenCookie,
-} from "../util/auth/discordAuth";
-import { useUserContext } from "./../util/contexts/";
 import { Redirect } from "react-router";
 
-function Authorize() {
-  const { setToken } = useUserContext();
+import {
+  getAccessTokenFromURL,
+  getAccessTokenCookie,
+  setAccessTokenCookie
+} from "../utils/auth";
+
+
+export default function Authorize() {
+
+  if (getAccessTokenCookie()) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/",
+          state: {
+            message: "You are already signed in"
+          }
+        }}
+      />
+    )
+  }
+
   const accessToken = getAccessTokenFromURL();
   setAccessTokenCookie(accessToken);
-  setToken(accessToken);
 
   return (
     <div>
@@ -20,5 +33,3 @@ function Authorize() {
     </div>
   );
 }
-
-export default Authorize;

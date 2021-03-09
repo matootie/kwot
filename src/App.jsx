@@ -1,8 +1,7 @@
-import { UserProvider } from "./util/contexts";
-
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import Routes from "./Routes";
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -10,19 +9,14 @@ const queryClient = new QueryClient({
       staleTime: Infinity,
     },
   },
-});
+})
 
-function App() {
-  // call user context wrapping routes
+export default function App() {
   return (
     <div className="App">
-      <UserProvider>
-        <QueryClientProvider client={queryClient}>
-          <Routes />
-        </QueryClientProvider>
-      </UserProvider>
+      <QueryClientProvider client={queryClient}>
+        <Routes />
+      </QueryClientProvider>
     </div>
-  );
+  )
 }
-
-export default App;
