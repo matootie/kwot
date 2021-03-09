@@ -6,7 +6,6 @@ import { useVoted, useQuote, useVote } from "../utils/api"
 
 import Loading from "../components/Loading"
 import Quote from "../components/Quote"
-import { data } from "autoprefixer"
 
 
 export default function Vote() {
@@ -62,7 +61,7 @@ export default function Vote() {
           </div>
         </>
       )
-    } else if (quotes.isError || !data.data) {
+    } else if (quotes.isError || quotes.data.status === 204) {
       // Fetching quotes has run into an error, show an error screen.
       return (
         <>
