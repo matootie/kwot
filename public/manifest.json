@@ -1,6 +1,6 @@
 {
-  "short_name": "Kwot",
-  "name": "Kwot",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,7 +13,7 @@
       "sizes": "192x192"
     },
     {
-      "src": "Kwot_Icon.png",
+      "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
