@@ -15,7 +15,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 const navigation = [
   { name: 'Feed', to: '/', icon: HomeIcon, current: true },
   { name: 'Today', to: '/quotes', icon: UsersIcon, current: false },
-  { name: 'Activity', to: '/profile', icon: FolderIcon, current: false }
+  { name: 'Activity', to: '/activity', icon: FolderIcon, current: false }
 ]
 
 function classNames(...classes) {
@@ -178,7 +178,7 @@ export default function ApplicationShell(props) {
             </div>
             {isAuthenticated && (
               <div className="flex-shrink-0 flex justify-between border-t border-gray-200 p-4">
-                <Link to="/profile" className="group block">
+                <Link to={`/author/${user.nickname}`} className="group block">
                   <div className="flex items-center">
                     <div>
                       <img
@@ -216,13 +216,8 @@ export default function ApplicationShell(props) {
           </button>
         </div>
         <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
-          <div className="py-6 h-full">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
-            </div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-full">
-              {props.children}
-            </div>
+          <div className="h-full">
+            {props.children}
           </div>
         </main>
       </div>

@@ -2,6 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import App from "App"
 import { BrowserRouter as Router } from "react-router-dom"
+import { QueryClient, QueryClientProvider } from "react-query"
 import Auth0ProviderWithHistory from "components/util/Auth0ProviderWithHistory"
 
 import "./index.css"
@@ -18,11 +19,21 @@ const reportWebVitals = onPerfEntry => {
   }
 }
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity
+    }
+  }
+})
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Auth0ProviderWithHistory>
-        <App />
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
       </Auth0ProviderWithHistory>
     </Router>
   </React.StrictMode>,

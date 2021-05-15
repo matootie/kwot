@@ -37,7 +37,7 @@ export default function App() {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/quotes" component={Quotes} exact />
-        <Route path="/profile" component={Profile} exact />
+        <Route path="/author/:nickname" component={Profile} />
       </Switch>
     )
   } else {
