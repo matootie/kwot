@@ -1,4 +1,4 @@
-import ApplicationShell from "components/ApplicationShell"
+import ApplicationShell from "components/util/ApplicationShell"
 
 export default function Quotes() {
   return (

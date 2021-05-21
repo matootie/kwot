@@ -1,7 +1,7 @@
 import { Route, Switch } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react"
 
-import Loading from "components/Loading"
+import Loading from "components/util/Loading"
 import Login from "pages/Login"
 import Home from "pages/Home"
 import Quotes from "pages/Quotes"
